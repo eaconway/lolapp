@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width"
+	<title> One Piece Fan Site</title>
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css">
+</head>
+<body>
+	<div>
+		<!--<form action='/home' method='POST'>
+			<input type="text" name="search" placeholder="Type summoner name">
+			<input type="submit" value="search">
+		</form>
+		-->
+		<form action="/home" method='POST'>
+			<!--<input type="text" name="lobby_text" placeholder="Paste Summoner Lobby chat">-->
+			<textarea name="lobby_text" cols="100" rows="7"></textarea>
+			<input type="submit" value="search">
+		</form>
+		<a href="/home">Clear</a>
+
+		{% if summoner_names %}
+		{% for summoner in summoner_names%}
+		<h1>{{summoner}}</h1>
+		{% endfor %}
+		{% endif %}
+
+	</div>
+</body>
+</html>
