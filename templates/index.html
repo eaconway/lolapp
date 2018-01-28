@@ -13,12 +13,12 @@
 			<input type="submit" value="search">
 		</form>
 		-->
-		<form action="/home" method='POST'>
+		<form action="/" method='POST'>
 			<!--<input type="text" name="lobby_text" placeholder="Paste Summoner Lobby chat">-->
 			<textarea name="lobby_text" cols="100" rows="7"></textarea>
 			<input type="submit" value="search">
 		</form>
-		<a href="/home">Clear</a>
+		<a href="/">Clear</a>
 
 		{% if summoner_names %}
 		{% for summoner in summoner_names%}
