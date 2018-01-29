@@ -15,7 +15,7 @@ Vincent joined the lobby"""
 
 app = Flask(__name__)
 
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
 	context = dict()
 	if request.method=='POST':
@@ -25,7 +25,7 @@ def home():
 		#response = requests.get(url)
 		#user_data = response.json()
 		#context["summoner_names"]=user_data
-		get_data(parsed_names[0])
+		analyze_summoner(parsed_names[0])
 		#for name in parsed_names:
 		#	get_data(name)
 		context["summoner_names"]=parsed_names
