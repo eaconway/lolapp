@@ -1,0 +1,26 @@
+.role {
+	color: white;
+	padding: 5px 10px;
+	margin-left: 7px;
+}
+
+.role-adc {
+	background-color: red;
+}
+
+.role-support {
+	background-color: #F9E025;
+	color: inherit;
+}
+
+.role-mid {
+	background-color: orange;
+}
+
+.role-jungle {
+	background-color: green;
+}
+
+.role-top {
+	background-color: blue;
+}

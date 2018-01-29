@@ -1,31 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset='utf-8'>
-	<meta name="viewport" content="width=device-width"
-	<title>League Lobby Chat Parser | Understanding your team</title>
-	<link rel="stylesheet" type="text/css" href="./static/css/style.css">
-</head>
-<body>
-	<div>
-		<!--<form action='/home' method='POST'>
-			<input type="text" name="search" placeholder="Type summoner name">
-			<input type="submit" value="search">
-		</form>
-		-->
-		<form action="/" method='POST'>
-			<!--<input type="text" name="lobby_text" placeholder="Paste Summoner Lobby chat">-->
-			<textarea name="lobby_text" cols="100" rows="7"></textarea>
-			<input type="submit" value="search">
-		</form>
-		<a href="/home">Clear</a>
+{% extends 'base.html' %}
 
-		{% if summoner_names %}
-		{% for summoner in summoner_names%}
-		<h1>{{summoner}}</h1>
-		{% endfor %}
-		{% endif %}
+{% block body %}
+<div class="container">
+	<!-- Input -->
 
+	<div class="row">
+		<div class="col-xs-12">
+			<form action="/" method='POST'>
+				<div class="form-group">
+					<textarea id="lobby_text" class="form-control" name="lobby_text" cols="50" rows="7">{{ lobby_text or '' }}</textarea>
+				</div>
+				<div class="form-group">
+					<input class="pull-right btn btn-primary" type="submit" value="search">
+					{% if summoners %}
+					<a class="btn btn-default" href="/">Clear</a>
+					{% endif %}
+				</div>
+			</form>
+		</div>
 	</div>
-</body>
-</html>
+
+	<!-- Results -->
+	{% if summoners %}
+	<div class="row">
+		<div class="col-xs-12">
+			{% for summoner in summoners %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span>{{ summoner.name }}</span>
+					<div class="pull-right">
+						<span class="role role-{{ summoner.primaryRole | lower }}">{{ summoner.primaryRole }}</span>
+						<span class="role role-{{ summoner.secondaryRole | lower }}">{{ summoner.secondaryRole }}</span>						
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-3">This is the first section</div>
+						<div class="col-sm-3">This is the next section</div>
+						<div class="col-sm-3">This is the last section</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% endif %}
+
+</div> <!-- .container -->
+{% endblock %}
